@@ -1,4 +1,4 @@
-name: action-build
+name: Main
 
 on:
   workflow_dispatch:
@@ -31,7 +31,6 @@ jobs:
         uses: actions/setup-dotnet@main
         with:
           dotnet-version: |
-            6.x
             9.x
 
       - name: Build
@@ -41,7 +40,7 @@ jobs:
       - name: Create Artifact Directory
         run: |
           New-Item -ItemType Directory -Force -Path Artifact
-          Copy-Item **/bin/${{ github.event.inputs.build_configuration }}/net6.0/* Artifact -ErrorAction SilentlyContinue
+          Copy-Item **/bin/${{ github.event.inputs.build_configuration }}/net9.0/* Artifact -ErrorAction SilentlyContinue
           Copy-Item LICENSE,README.md Artifact -ErrorAction SilentlyContinue
 
       - name: Create Zip Archive

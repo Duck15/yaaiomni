@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <NoWarn>$(NoWarn);CS1591;MSB3270</NoWarn>
@@ -38,11 +38,12 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="TShock" Version="5.2.2">
-      <ExcludeAssets>ContentFiles</ExcludeAssets>
-    </PackageReference>
-  </ItemGroup>
+    <ItemGroup>
+        <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-6qmf-mmc7-6c2p"/>
+        <PackageReference Include="UnrealMultiple.TShock-Beta" Version="6.0.3">
+            <IncludeAssets>compile</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Plugin.csproj">
