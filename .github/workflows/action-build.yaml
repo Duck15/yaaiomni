@@ -1,4 +1,4 @@
-name: Main
+name: action-build
 
 on:
   workflow_dispatch:
